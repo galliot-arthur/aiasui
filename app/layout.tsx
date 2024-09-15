@@ -29,6 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="p-4 flex flex-row items-center justify-between border-b-1 border-gray-300">
+          <h1 className="text-2xl">{i18n.title}</h1>
+          <p>{i18n.description}</p>
+        </header>
         {children}
       </body>
     </html>

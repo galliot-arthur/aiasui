@@ -14,7 +14,9 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@commons/ui": ["./libs/commons/ui/index.ts"]
+      "@commons/ui": ["./libs/commons/ui/index.ts"],
+      "@chat/ui": ["./libs/chat/ui/index.ts"],
+      "@chat/domain": ["./libs/chat/domain/index.ts"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

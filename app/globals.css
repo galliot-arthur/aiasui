@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .chat {
+    @apply whitespace-pre-wrap;
+    @apply rounded;
+  }
+  .chat > div {
+    @apply text-xs;
+    @apply text-gray-500;
+    @apply mb-1;
+  }
+  .chat > p {
+    @apply px-2;
+    @apply py-1;
+    @apply rounded-lg;
+    @apply shadow-sm;
+  }
+
+  .chat-user > p {
+    @apply bg-green-500;
+    @apply rounded-br-none;
+  }
+
+  .chat-assistant > p {
+    @apply bg-gray-100;
+    @apply rounded-bl-none;
+  }
+}
