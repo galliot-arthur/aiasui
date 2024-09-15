@@ -1,0 +1,11 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "reportUnusedDisableDirectives": true,
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "warnOnUnsupportedTypescriptVersion": true,
+    "sourceType": "module"
+  }
+}
