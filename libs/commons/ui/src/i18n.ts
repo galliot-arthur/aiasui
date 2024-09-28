@@ -20,5 +20,6 @@ export const i18n = {
       assistant: "AI: ",
     },
     inputPlaceholder: "Say something...",
+    sendMessage: "Send Message",
   },
 };

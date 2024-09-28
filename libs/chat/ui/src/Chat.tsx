@@ -4,36 +4,39 @@ import { useChat } from "ai/react";
 import { Message } from "./components/Message";
 import { i18n } from "@/libs/commons/ui";
 import { FormEventHandler, useState } from "react";
-import { Loop, Send } from "@material-ui/icons";
+import { Send } from "@material-ui/icons";
+import { ChatState } from "./helpers/types";
+import { Status } from "./components/Status";
 
 export function Chat() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [state, setState] = useState<ChatState>({
+    isLoading: false,
+    error: null,
+  });
+
+  const setLoadingState = (isLoading: boolean) =>
+    setState((s) => ({ ...s, isLoading }));
+
   const { messages, input, handleInputChange, handleSubmit } = useChat({
-    onFinish: () => setIsLoading(false),
-    onError: () => setIsLoading(false),
+    onFinish: () => setLoadingState(false),
+    onError: (e) => setState({ isLoading: false, error: e.message }),
   });
 
   const handleChatSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setState({ isLoading: true, error: null });
     handleSubmit();
   };
 
   return (
     <div className="flex flex-col w-full h-[calc(100vh-6rem)] pt-12 mx-auto justify-between gap-4 relative">
-      <ul className="flex flex-col gap-4 overflow-y-auto h-[calc(100vh-6rem)] pb-24 border-1 border-gray-200 rounded-lg px-4 shadow-inner-white">
+      <ul className="flex flex-col justify-end gap-4 overflow-y-auto h-[calc(100vh-6rem)] pb-12 border-1 border-gray-200 rounded-lg px-4 shadow-inner-white">
         {messages.map((message) => (
           <li key={message.id}>
             <Message message={message} />
           </li>
         ))}
-        {isLoading && (
-          <div className="flex items-center justify-center w-full">
-            <p className="animate-spin text-green-300">
-              <Loop fontSize="large" color="inherit" />
-            </p>
-          </div>
-        )}
+        <Status {...state} />
       </ul>
 
       <form
@@ -56,7 +59,8 @@ export function Chat() {
             className="active:bg-gray-300 text-sm focus:outline-none focus:bg-gray-300 px-4 py-3 rounded-lg hover:bg-gray-200 hover:text-green-500 shadow-sm hover:shadow-green-100 border-1 border-gray-200"
             type="submit"
             tabIndex={0}
-            aria-label={i18n.chat.inputPlaceholder}
+            aria-label={i18n.chat.sendMessage}
+            title={i18n.chat.sendMessage}
           >
             <Send fontSize="small" color="inherit" />
           </button>

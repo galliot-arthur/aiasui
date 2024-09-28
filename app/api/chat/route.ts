@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { ollama } from "ollama-ai-provider";
 import { streamText, convertToCoreMessages } from "ai";
 
 // Allow streaming responses up to 30 seconds
@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const result = await streamText({
-    model: openai("gpt-4-turbo"),
+    model: ollama("llama2:chat"),
     messages: convertToCoreMessages(messages),
   });
 
