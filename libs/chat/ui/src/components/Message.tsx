@@ -1,5 +1,3 @@
-"use client";
-
 import { isRole, Role, ROLE_ASSISTANT, ROLE_USER } from "@/libs/chat/domain";
 import { i18n } from "@/libs/commons/ui";
 import { type Message } from "ai";
@@ -22,8 +20,10 @@ export function Message({ message }: Props) {
 
   return (
     <div className={classesByRole[role]}>
-      <div>{i18n.chat.roles[role]}</div>
-      <p className="p-2">{content}</p>
+      <p className="role">{i18n.chat.roles[role]}</p>
+      <p className="p-2 content">
+        <span>{content}</span>
+      </p>
     </div>
   );
 }

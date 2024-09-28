@@ -7,25 +7,39 @@
     @apply whitespace-pre-wrap;
     @apply rounded;
   }
-  .chat > div {
+  .chat > .role {
     @apply text-xs;
     @apply text-gray-500;
     @apply mb-1;
   }
-  .chat > p {
+  .chat > .content {
     @apply px-2;
     @apply py-1;
     @apply rounded-lg;
     @apply shadow-sm;
   }
 
-  .chat-user > p {
-    @apply bg-green-500;
+  .chat-user > .role {
+    text-align: right;
+  }
+
+  .chat-user > .content {
+    @apply bg-green-100;
     @apply rounded-br-none;
   }
 
-  .chat-assistant > p {
+  .chat-assistant > .content {
     @apply bg-gray-100;
     @apply rounded-bl-none;
+  }
+
+  .shadow-inner-white::after {
+    content: "";
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255), transparent);
   }
 }

@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: i18n.title,
+  title: i18n.title.full,
   description: i18n.description,
 };
 
@@ -29,9 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="p-4 flex flex-row items-center justify-between border-b-1 border-gray-300">
-          <h1 className="text-2xl">{i18n.title}</h1>
-          <p>{i18n.description}</p>
+        <header className="p-4 flex flex-row items-center justify-between border-b-1 border-gray-300 shadow-2xl shadow-green-100">
+          <h1 className="text-2xl">
+            <span className="text-gray-400">{i18n.title.sliced.ai}</span>
+            <span className="text-green-400">{i18n.title.sliced.as}</span>
+            <span className="text-gray-400">{i18n.title.sliced.ui}</span>
+          </h1>
+          <p className="text-xs text-gray-500">{i18n.description}</p>
         </header>
         {children}
       </body>

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "0.0.60",
+    "@material-ui/icons": "^4.11.3",
     "ai": "3.3.37",
     "next": "14.2.11",
     "react": "18",
