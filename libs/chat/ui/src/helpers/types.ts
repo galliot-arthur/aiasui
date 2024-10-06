@@ -1,4 +1,6 @@
+import { ErrorResponse } from "@/libs/commons/domain";
+
 export interface ChatState {
   isLoading: boolean;
-  error: string | null;
+  error: ErrorResponse | string | null;
 }

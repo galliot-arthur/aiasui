@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "0.0.60",
-    "@material-ui/icons": "^4.11.3",
+    "@material-ui/icons": "4.11.3",
     "ai": "3.3.37",
     "next": "14.2.11",
-    "ollama-ai-provider": "^0.15.1",
+    "ollama-ai-provider": "0.15.1",
     "react": "18",
-    "react-dom": "18"
+    "react-dom": "18",
+    "ts-results": "3.3.0",
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@types/node": "20",

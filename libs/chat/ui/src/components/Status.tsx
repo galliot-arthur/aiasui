@@ -1,5 +1,7 @@
 import { ErrorOutline, Loop } from "@material-ui/icons";
 import { ChatState } from "../helpers/types";
+import { API_ERRORS, ErrorResponse } from "@/libs/commons/domain";
+import { i18n } from "@/libs/commons/ui";
 
 export function Status({ isLoading, error }: ChatState) {
   return (
@@ -9,7 +11,7 @@ export function Status({ isLoading, error }: ChatState) {
           <p className="text-red-300 mb-1">
             <ErrorOutline fontSize="small" color="inherit" />
           </p>
-          <p className="text-red-500 text-sm">{error}</p>
+          <p className="text-red-500 text-sm">{errorMapper(error)}</p>
         </div>
       )}
       {isLoading && (
@@ -22,3 +24,14 @@ export function Status({ isLoading, error }: ChatState) {
     </>
   );
 }
+
+const errorMapper = (error: string | ErrorResponse) => {
+  if (typeof error === "string") {
+    return error;
+  }
+  if (API_ERRORS.includes(error.message)) {
+    return i18n.api.errors[error.message];
+  }
+
+  return error.message;
+};

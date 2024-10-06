@@ -14,9 +14,13 @@
     ],
     "paths": {
       "@/*": ["./*"],
+      "@commons/api": ["./libs/commons/api/index.ts"],
+      "@commons/domain": ["./libs/commons/domain/index.ts"],
       "@commons/ui": ["./libs/commons/ui/index.ts"],
+      "@chat/api": ["./libs/chat/api/index.ts"],
+      "@chat/domain": ["./libs/chat/domain/index.ts"],
       "@chat/ui": ["./libs/chat/ui/index.ts"],
-      "@chat/domain": ["./libs/chat/domain/index.ts"]
+      "@event/domain": ["./libs/chat/event/index.ts"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

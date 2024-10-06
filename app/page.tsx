@@ -6,8 +6,8 @@ export default function Home() {
     <main className="p-4">
       <div className="grid grid-cols-1 sm:grid-cols-5 lg:grid-cols-7 gap-4">
         <div className="col-span-1 lg:col-span-2 hidden sm:block">
-          <aside className="p-4 h-[calc(100vh-6rem)] flex flex-col gap-4">
-            <div>
+          <aside className="h-[calc(100vh-6rem)] flex flex-col gap-4">
+            <div className="p-4 rounded-lg bg-white shadow shadow-green-100">
               <h2 className="text-xs text-gray-600 mb-1">
                 {i18n.descriptionLong.title}
               </h2>

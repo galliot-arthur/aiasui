@@ -7,6 +7,12 @@ import { FormEventHandler, useState } from "react";
 import { Send } from "@material-ui/icons";
 import { ChatState } from "./helpers/types";
 import { Status } from "./components/Status";
+import { ErrorSchema } from "@/libs/commons/domain";
+import {
+  isGenerateObjectSuccessBody,
+  ROLE_ASSISTANT,
+} from "@/libs/chat/domain";
+import { Event } from "@/libs/event/domain";
 
 export function Chat() {
   const [state, setState] = useState<ChatState>({
@@ -17,10 +23,34 @@ export function Chat() {
   const setLoadingState = (isLoading: boolean) =>
     setState((s) => ({ ...s, isLoading }));
 
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
-    onFinish: () => setLoadingState(false),
-    onError: (e) => setState({ isLoading: false, error: e.message }),
-  });
+  const { messages, input, handleInputChange, handleSubmit, setMessages } =
+    useChat({
+      onFinish: () => setLoadingState(false),
+      onResponse: async (r) => {
+        if (r.ok) {
+          const body = await r.json();
+          if (isGenerateObjectSuccessBody<Event>(body)) {
+            setMessages((previous) => [
+              ...previous,
+              {
+                id: crypto.randomUUID(),
+                role: ROLE_ASSISTANT,
+                content: `Your event ${body.object.event.name} have been succesfully created`,
+              },
+            ]);
+            setLoadingState(false);
+          }
+        }
+      },
+      onError: (e) => {
+        try {
+          const parsed = ErrorSchema.parse(JSON.parse(e.message));
+          setState({ isLoading: false, error: parsed });
+        } catch (error) {
+          console.error(error);
+        }
+      },
+    });
 
   const handleChatSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
