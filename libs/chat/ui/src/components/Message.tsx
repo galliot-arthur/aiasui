@@ -6,7 +6,7 @@ interface Props {
   message: Message;
 }
 
-const classesByRole: Record<Role, string> = {
+const classesByRole: Partial<Record<Role, string>> = {
   [ROLE_USER]: "chat chat-user",
   [ROLE_ASSISTANT]: "chat chat-assistant",
 };

@@ -1,21 +1,29 @@
-import { convertToCoreMessages, streamText } from "ai";
-import { ollama } from "ollama-ai-provider";
+import { streamText as aIstreamText } from "ai";
+import { openai } from "@ai-sdk/openai";
 import { ConvertibleMessage } from "@chat/domain";
+import { eventSchema, Event } from "@/libs/event/domain";
 
-type StreamTextOptions = {
-  isConfirmMessage?: boolean;
-};
+async function streamText(messages: ConvertibleMessage[]) {
+  const result = await aIstreamText({
+    model: openai("gpt-4o"),
+    messages: messages,
+    system: "You are super cute",
+    //You are an music event planner assistant. Most the time you answer questions but you can also collect and validate data to generage an record of it that will be shared with the user later.
+    tools: {
+      generateEvent: {
+        description: "Generate an music event",
+        parameters: eventSchema,
+        execute: async (event: Event) => {
+          console.log(event);
+          return "Hell yeah brother";
+        },
+      },
+    },
+  });
 
-export class StreamTextService {
-  async streamText(messages: ConvertibleMessage[], options: StreamTextOptions) {
-    const result = await streamText({
-      model: ollama("llama2:chat"),
-      messages: convertToCoreMessages(messages),
-      system: options.isConfirmMessage
-        ? "Just send a quick message so the user knows the request have been performed"
-        : "",
-    });
-
-    return result.toDataStreamResponse();
-  }
+  return result.toDataStreamResponse();
 }
+
+export const StreamTextService = {
+  streamText,
+};

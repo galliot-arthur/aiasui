@@ -1,22 +1,25 @@
-import { GenerateObjectService, ValidateQuery } from "@/libs/chat/api";
+import {
+  GenerateObjectService,
+  StreamTextService,
+  ValidateQueryDot,
+} from "@/libs/chat/api";
 import { GENERATE_OBJECT_UNKNOWN_ERROR } from "@/libs/chat/domain";
+
 import { ApiResponse } from "@/libs/commons/api";
 import { eventSchema } from "@/libs/event/domain";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
-const validateQuery = new ValidateQuery();
-const generateObjectService = new GenerateObjectService();
-
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  if (validateQuery.isConvertibleMessageSchema(messages) === false) {
+  return StreamTextService.streamText(messages);
+  /*  if (ValidateQueryDot.isConvertibleMessageSchema(messages) === false) {
     return ApiResponse.badRequestError;
   }
 
-  const generation = await generateObjectService.generateObject(
+  const generation = await GenerateObjectService.generateObject(
     messages,
     eventSchema
   );
@@ -29,5 +32,5 @@ export async function POST(req: Request) {
     return ApiResponse.apiGlobalError;
   }
 
-  return ApiResponse.badRequestErrorWithData(generation.val);
+  return ApiResponse.badRequestErrorWithData(generation.val); */
 }

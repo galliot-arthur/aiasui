@@ -11,6 +11,9 @@ const config: Config = {
       borderWidth: {
         1: "1px",
       },
+      outlineWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [],

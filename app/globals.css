@@ -15,22 +15,29 @@
   .chat > .content {
     @apply px-2;
     @apply py-1;
-    @apply rounded-lg;
-    @apply shadow-sm;
+    @apply rounded-xl;
   }
 
   .chat-user > .role {
     text-align: right;
   }
 
+  .chat-user {
+    @apply ml-8;
+  }
+
+  .chat-assistant {
+    @apply mr-8;
+  }
+
   .chat-user > .content {
-    @apply bg-green-100;
     @apply rounded-br-none;
   }
 
   .chat-assistant > .content {
-    @apply bg-gray-100;
     @apply rounded-bl-none;
+    @apply bg-green-100;
+    @apply shadow-sm;
   }
 
   .shadow-inner-white::after {

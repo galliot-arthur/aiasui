@@ -26,8 +26,11 @@ export const i18n = {
       user: "You: ",
       assistant: "AI: ",
     },
-    inputPlaceholder: "Say something...",
+    inputLabel: "Ask me anything",
+    inputPlaceholder:
+      "Generate me a music event with Todd Terry and Jovonn at Le Bain on 13th of March 2021.",
     sendMessage: "Send Message",
+    autoMessage: "Send Auto Message",
   },
   api: {
     errors: {
