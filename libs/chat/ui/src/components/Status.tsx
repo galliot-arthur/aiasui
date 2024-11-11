@@ -1,7 +1,7 @@
 import { ErrorOutline, Loop } from "@material-ui/icons";
 import { ChatState } from "../helpers/types";
-import { API_ERRORS, ErrorResponse } from "@/libs/commons/domain";
-import { i18n } from "@/libs/commons/ui";
+import { API_ERRORS, ErrorResponse } from "@commons/domain";
+import { i18n } from "@commons/ui";
 
 export function Status({ isLoading, error }: ChatState) {
   return (

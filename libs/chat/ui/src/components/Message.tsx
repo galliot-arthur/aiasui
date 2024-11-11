@@ -1,5 +1,5 @@
-import { isRole, Role, ROLE_ASSISTANT, ROLE_USER } from "@/libs/chat/domain";
-import { i18n } from "@/libs/commons/ui";
+import { isRole, Role, ROLE_ASSISTANT, ROLE_USER } from "@chat/domain";
+import { i18n } from "@commons/ui";
 import { type Message } from "ai";
 
 interface Props {

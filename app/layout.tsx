@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { i18n } from "@/libs/commons/ui";
+import { i18n } from "@commons/ui";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,7 +35,9 @@ export default function RootLayout({
             <span className="text-green-400">{i18n.title.sliced.as}</span>
             <span className="text-gray-400">{i18n.title.sliced.ui}</span>
           </h1>
-          <p className="text-xs text-gray-500">{i18n.description}</p>
+          <p className="text-xs text-gray-500 w-[calc(66%-16px)] text-end">
+            {i18n.description}
+          </p>
         </header>
         {children}
       </body>

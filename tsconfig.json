@@ -13,14 +13,21 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@commons/api": ["./libs/commons/api/index.ts"],
-      "@commons/domain": ["./libs/commons/domain/index.ts"],
-      "@commons/ui": ["./libs/commons/ui/index.ts"],
+      "@artists/api": ["./libs/artists/api/index.ts"],
+      "@artists/domain": ["./libs/artists/domain/index.ts"],
+      "@artists/ui": ["./libs/artists/ui/index.ts"],
       "@chat/api": ["./libs/chat/api/index.ts"],
       "@chat/domain": ["./libs/chat/domain/index.ts"],
       "@chat/ui": ["./libs/chat/ui/index.ts"],
-      "@event/domain": ["./libs/chat/event/index.ts"]
+      "@commons/api": ["./libs/commons/api/index.ts"],
+      "@commons/domain": ["./libs/commons/domain/index.ts"],
+      "@commons/ui": ["./libs/commons/ui/index.ts"],
+      "@database/api": ["./libs/database/api/index.ts"],
+      "@events/api": ["./libs/events/api/index.ts"],
+      "@events/domain": ["./libs/events/domain/index.ts"],
+      "@locations/api": ["./libs/locations/api/index.ts"],
+      "@locations/domain": ["./libs/locations/domain/index.ts"],
+      "@locations/ui": ["./libs/locations/ui/index.ts"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

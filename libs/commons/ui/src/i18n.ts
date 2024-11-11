@@ -21,6 +21,11 @@ export const i18n = {
     description:
       "This chatbot serves as an experiment to explore how AI can collect and process user data in a manner similar to traditional form-based data collection. It is designed to be used as a tool for collecting and processing data. It was built using Next.JS and Vercel AI Sdk.",
   },
+  common: {
+    button: {
+      extend: "Extends or hide list",
+    },
+  },
   chat: {
     roles: {
       user: "You: ",
@@ -28,7 +33,7 @@ export const i18n = {
     },
     inputLabel: "Ask me anything",
     inputPlaceholder:
-      "Generate me a music event with Todd Terry and Jovonn at Le Bain on 13th of March 2021.",
+      "Generate me a music event with Todd Terry and Jovonn at Le Bain on 13th of March 2025. It starts a 11pm and ends at 4am. Entrance is 16$.",
     sendMessage: "Send Message",
     autoMessage: "Send Auto Message",
   },
@@ -42,5 +47,15 @@ export const i18n = {
       [FORBIDDEN_ERROR]:
         "You are not authorized to access this resource. Please contact the administrator.",
     },
+  },
+  artist: {
+    title: "Related Artist",
+    instagram: "Instagram Account",
+    delete: "Delete artist",
+  },
+  location: {
+    title: "Related Location",
+    instagram: "Instagram Account",
+    delete: "Delete location",
   },
 };

@@ -9,12 +9,17 @@
     "lint": "next lint",
     "prepare": "husky"
   },
+  "prisma": {
+    "schema": "./libs/database/api/src/schema.prisma"
+  },
   "dependencies": {
     "@ai-sdk/openai": "0.0.60",
     "@material-ui/icons": "4.11.3",
+    "@prisma/client": "5.9.0",
     "@vercel/postgres": "^0.10.0",
     "@vercel/postgres-kysely": "0.10.0",
     "ai": "3.3.37",
+    "classnames": "^2.5.1",
     "kysely": "0.27.4",
     "next": "14.2.11",
     "ollama-ai-provider": "0.15.1",
@@ -32,6 +37,7 @@
     "eslint": "8",
     "eslint-config-next": "14.2.11",
     "postcss": "8",
+    "prisma": "5.9.0",
     "tailwindcss": "3.4.1",
     "typescript": "5"
   },

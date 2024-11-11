@@ -2,13 +2,14 @@
 
 import { useChat } from "ai/react";
 import { Message } from "./components/Message";
-import { i18n } from "@/libs/commons/ui";
+
 import { FormEventHandler, MouseEvent, useState } from "react";
 import { Send, LocalPizza } from "@material-ui/icons";
 import { ChatState } from "./helpers/types";
 import { Status } from "./components/Status";
-import { ErrorSchema } from "@/libs/commons/domain";
-import { ROLE_USER } from "@/libs/chat/domain";
+import { ErrorSchema } from "@commons/domain";
+import { ROLE_USER } from "@chat/domain";
+import { i18n } from "@commons/ui";
 
 const INITIAL_STATE: ChatState = {
   isLoading: false,
@@ -57,7 +58,7 @@ export function Chat() {
 
   return (
     <div className="flex flex-col w-full h-[calc(100vh-6rem)] pt-12 mx-auto justify-between gap-4 relative">
-      <ul className="flex flex-col justify-end gap-4 overflow-y-scroll h-[calc(100vh-6rem)] pb-12 border-1 border-gray-200 rounded-lg px-4 shadow-inner-white shadow-lg shadow-gray-100">
+      <ul className="flex flex-col gap-4 overflow-y-scroll h-[calc(100vh-6rem)] pb-12 border-1 border-gray-200 rounded-lg px-4 shadow-inner-white shadow-lg shadow-gray-100">
         {messages.map((message) => (
           <li key={message.id}>
             <Message message={message} />

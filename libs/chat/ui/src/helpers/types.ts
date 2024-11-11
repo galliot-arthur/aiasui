@@ -1,4 +1,4 @@
-import { ErrorResponse } from "@/libs/commons/domain";
+import { ErrorResponse } from "@commons/domain";
 
 export interface ChatState {
   isLoading: boolean;
